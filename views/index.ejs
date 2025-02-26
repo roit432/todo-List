@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Post</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <h1>Todo List</h1>
+    
+    <% for(work of works) {%>
+        
+        <div class="works">
+            <h2>Username:<%=work.username%></h2>
+        <h2>Task:<%=work.taskname%></h2>
+        <a href="http://localhost:8080/works/<%=work.id %>">See Work</a>
+        <a href="http://localhost:8080/works/<%=work.id %>/edit">Edit</a>
+        <form method="POST" action="/works/<%=work.id%>?_method=DELETE">
+            <button type="submit">Delete Task</button>
+          </form>
+        </div>
+    <%}%>
+    <br><br>
+    
+    <a href="http://localhost:8080/works/new"><button><b>Add Task</b></button></a>
+</body>
+</html>
